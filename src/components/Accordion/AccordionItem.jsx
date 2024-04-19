@@ -1,8 +1,19 @@
-import React from "react";
-import { useAccordionContext } from "./Accordion";
+import React, { createContext, useContext } from "react";
 
-export default function AccordionItem({ id, title, children, className }) {
-  const { openItemId, toogleItem } = useAccordionContext();
+const AccordionItemContex = createContext();
 
-  return <li className={className}>{children}</li>;
+export function useAccordionItemContext() {
+  const ctx = useContext(AccordionItemContex);
+  if (!ctx) {
+    throw new Error("Accordian-related ");
+  }
+  return ctx;
+}
+
+export default function AccordionItem({ id, children, className }) {
+  return (
+    <AccordionItemContex.Provider value={id}>
+      <li className={className}>{children}</li>;
+    </AccordionItemContex.Provider>
+  );
 }
