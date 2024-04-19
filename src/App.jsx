@@ -1,5 +1,7 @@
 import Accordion from "./components/Accordion/Accordion";
 import AccordionItem from "./components/Accordion/AccordionItem";
+import SearchableList from "./components/SearchableList/SearchableList";
+import { PLACES } from "./data";
 
 function App() {
   return (
@@ -34,6 +36,10 @@ function App() {
             </Accordion.Content>
           </Accordion.Item>
         </Accordion>
+      </section>
+      <section>
+        <SearchableList items={PLACES} />
+        <SearchableList items={["item 1", "Item 2"]} />
       </section>
     </main>
   );
