@@ -1,5 +1,5 @@
 import React from "react";
-import Product from "./components/Product";
+
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import Dashboard from "./components/Dashboard";

@@ -1,0 +1,30 @@
+.cart_page {
+  padding: 40px;
+  .cart {
+    background-color: #fafafab2;
+    display: flex;
+    justify-content: center;
+
+    align-items: center;
+    flex-direction: column;
+    .cart-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    img {
+      width: 200px;
+      height: 200px;
+    }
+    button {
+      border: 1px solid red;
+      color: red;
+      z-index: 682;
+      :hover {
+        background-color: red;
+        color: aliceblue;
+      }
+    }
+  }
+}

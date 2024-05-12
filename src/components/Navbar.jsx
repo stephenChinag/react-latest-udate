@@ -1,10 +1,11 @@
 import "./navbar.scss";
 
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 const Navbar = () => {
-  // Ensure type safety
+  const cartProducts = useSelector((state) => state.cart);
 
   return (
     <nav>
@@ -17,7 +18,7 @@ const Navbar = () => {
 
       <div className="right">
         <Link to="/cart">
-          <span> my Bag</span>
+          <span> my Bag {cartProducts.length}</span>
         </Link>
       </div>
     </nav>
