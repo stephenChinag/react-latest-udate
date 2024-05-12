@@ -11,7 +11,7 @@ function Product() {
 
   return (
     <div>
-      <h1>Products Listed</h1>
+      <h1>Product Dashboard</h1>
       <div className="card-container">
         {products.map((p) => (
           <div className="card">
