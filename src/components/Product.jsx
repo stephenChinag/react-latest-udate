@@ -1,21 +1,30 @@
 import React, { useEffect, useState } from "react";
 
 import "./product.scss";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { add } from "../store/cartSlice";
+import { getProducts } from "../store/productSlice";
 function Product() {
   const dispatch = useDispatch();
-  const [products, setProdducts] = useState([]);
+
+  const { data: products, status } = useSelector((state) => state.products);
+
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((data) => data.json())
-      .then((result) => setProdducts(result));
+    dispatch(getProducts());
   }, []);
 
   const addTocart = (product) => {
     dispatch(add(product));
   };
 
+  console.log(status);
+
+  if (status === "loading") {
+    return <p> Loading</p>;
+  }
+  if (status === "error") {
+    return <p> Something went wrong</p>;
+  }
   return (
     <div>
       <h1>Product Dashboard</h1>
